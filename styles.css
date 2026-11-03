@@ -3,3 +3,62 @@
 @media(max-width:840px){.site-header{height:72px}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg2);padding:24px 28px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line);gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 5px;font-size:14px}.menu-btn{display:flex}.nav-contact{display:none}.hero{grid-template-columns:1fr;padding-top:75px;padding-bottom:85px;min-height:auto}.hero-copy{max-width:680px}.hero-stage{height:425px;max-width:560px;width:100%;margin:5px auto 30px}.screen-back{top:10px}.screen-front{top:95px}.float-tag-top{top:0;right:2px}.float-tag-bottom{bottom:4%}.hero-bottom{bottom:20px}.about-grid{grid-template-columns:1fr}.about-side{max-width:500px}.service-grid{grid-template-columns:repeat(2,1fr)}.section-heading-inline{align-items:start;flex-direction:column;gap:12px}.projects-grid{gap:15px}.project-info{padding:20px}.project-info h3{font-size:21px}.process-grid{grid-template-columns:repeat(2,1fr)}.process-step:nth-child(2){border-right:0}.process-step{border-bottom:1px solid var(--line);padding-left:20px!important}.toolkit-layout{grid-template-columns:1fr;gap:35px}.contact-sticker{right:0;top:10%;font-size:65px}}
 @media(max-width:600px){.container{width:calc(100% - 36px)}.announcement{font-size:9px;gap:7px}.navbar{gap:10px}.brand-name{font-size:11px}.brand-glyph{font-size:37px}.nav-actions{gap:7px}.icon-btn{width:34px;height:34px}.language-btn{width:43px}.hero{padding-top:53px}.hero h1{font-size:clamp(44px,10vw,60px);margin:22px 0}.hero-description{font-size:14px}.hero-ctas{gap:9px}.button-large{padding:15px 16px;font-size:11px;gap:13px}.hero-trust{font-size:10px;gap:9px}.hero-stage{height:315px;margin-top:15px;margin-bottom:10px}.stage-halo{width:280px;height:280px;left:12%}.screen-back{height:185px;top:11px}.screen-front{height:230px;top:65px}.float-tag-top{padding:8px;font-size:8px}.float-tag-bottom{padding:9px;font-size:9px;bottom:0}.float-tag-bottom .float-spark{font-size:20px}.hero-orbit{display:none}.section{padding-top:75px;padding-bottom:75px}.section-heading{margin-bottom:32px}.section-heading h2,.toolkit-layout h2{font-size:41px}.about-lead{font-size:25px}.about-links{gap:19px}.monogram-art{height:260px}.monogram-art>span:first-child{font-size:105px}.service-grid,.projects-grid{grid-template-columns:1fr}.service-card{min-height:220px}.projects-footer{align-items:start;flex-direction:column}.process-grid{grid-template-columns:1fr}.process-step{border-right:0!important;padding:22px 0!important;min-height:0}.process-number{margin-bottom:22px}.contact-inner{padding:85px 0 75px}.contact-section h2{font-size:55px}.contact-section p{font-size:14px}.contact-meta{margin-top:55px;gap:13px;font-size:11px;flex-direction:column}.footer-inner{flex-wrap:wrap}.footer p{order:3;flex:100%}.modal-overlay{padding:10px}.modal-body{padding:18px}.modal-grid{grid-template-columns:1fr;gap:10px}.modal-gallery{gap:5px}.modal-body h2{font-size:35px}.modal-description{font-size:13px}.float-tag-bottom small{font-size:7px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* ==========================================
+   PORTFOLIO UI FIXES
+   Stable hero visuals and responsive skills
+   ========================================== */
+
+/* Stop the continuous floating hero image */
+.screen-front {
+  animation: none !important;
+  transform: rotate(4deg) rotateY(-10deg);
+}
+
+/* Stop automatic horizontal movement */
+.marquee-track {
+  animation: none !important;
+  transform: none !important;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px 30px;
+}
+
+/* Let the skills strip expand naturally */
+.marquee {
+  overflow: hidden;
+  padding: 18px 20px;
+}
+
+/* Prevent accidental horizontal page overflow */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Keep the hero composition inside its area */
+.hero-stage {
+  max-width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .marquee-track {
+    gap: 10px 18px;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .screen-front {
+    transform: rotate(2deg);
+  }
+
+  .float-tag-top {
+    right: 0;
+  }
+}
